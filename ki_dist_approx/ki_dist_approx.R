@@ -11,5 +11,5 @@ prod(sapply(si.fs.dist,function(y) length(y$x))) # we have no hope of fitting th
 si.fs.cdf.l <- dist.duo.cdf(dists.product.duo.appr(si.fs.dist,appr.method=1)) # `round' to lower values
 si.fs.cdf.u <- dist.duo.cdf(dists.product.duo.appr(si.fs.dist,appr.method=2)) # `round' to higher values
 
-si.fs.cdf.l(1e6,exc.prob=TRUE)
-si.fs.cdf.u(1e6,exc.prob=TRUE)
+si.fs.cdf.l(1e6,exc.prob=TRUE) # lower bound on exc. prob
+si.fs.cdf.u(1e6,exc.prob=TRUE) # upper bound on exc. prob

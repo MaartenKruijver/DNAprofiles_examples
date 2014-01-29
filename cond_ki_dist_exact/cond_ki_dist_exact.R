@@ -22,6 +22,9 @@ fs.si.dist.duo <- dists.product.duo(fs.si.dist)
 # obtain the cdf of the sibling index for true sibs as a function
 fs.si.cdf <- dist.duo.cdf(fs.si.dist.duo)
 
+## we could also obtain the cdf directly
+## fs.si.cdf <- cond.ki.cdf(x,hyp.1="FS",hyp.2="UN",hyp.true="FS",freqs=fr)
+
 fs.si.cdf(1) # pr. that SI<=1 for true sibs
 fs.si.cdf(1,exc.prob=TRUE) # pr. that SI>1 for true sibs
 
@@ -30,5 +33,5 @@ x0 <- seq(from=-10,to=20,length=50)
 plot(x0,fs.si.cdf(10^x0),type="l")
 
 # add the cdf for unrelated profiles
-unr.si.cdf <- dist.duo.cdf(dists.product.duo(cond.ki.dist(x,hyp.1="FS",hyp.2="UN",hyp.true="UN",freqs.ki=fr)))
+unr.si.cdf <- cond.ki.cdf(x,hyp.1="FS",hyp.true="UN",freqs=fr)
 lines(x0,unr.si.cdf(10^x0),lty=2)

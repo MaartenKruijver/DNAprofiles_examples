@@ -31,5 +31,5 @@ x0 <- seq(from=-10,to=20,length=50)
 plot(x0,fs.si.cdf(10^x0),type="l")
 
 # add the cdf for unrelated profiles
-unr.si.cdf <- cond.ki.cdf(x,hyp.1="FS",hyp.true="UN")
+unr.si.cdf <- ki.cdf(x,hyp.1="FS",hyp.true="UN")
 lines(x0,unr.si.cdf(10^x0),lty=2)

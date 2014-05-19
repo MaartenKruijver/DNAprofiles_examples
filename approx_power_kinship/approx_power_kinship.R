@@ -11,11 +11,13 @@ fs.vs.hs.fs <- ki.dist(hyp.1="FS",hyp.2="HS",hyp.true="FS",freqs.ki=fr)
 fs.vs.hs.hs <- ki.dist(hyp.1="FS",hyp.2="HS",hyp.true="HS",freqs.ki=fr)
 prod(sapply(fs.vs.hs.fs,function(y) length(y$x))) # we have no hope of fitting this in memory
 
-fs.cdf.l <- dists.product.cdf.appr(fs.vs.hs.fs,appr.method=1) # `round' to lower values
-fs.cdf.u <- dists.product.cdf.appr(fs.vs.hs.fs,appr.method=2) # `round' to higher values
+# `round' to lower values
+fs.cdf.l <- dist.pair.cdf(dists.product.pair(fs.vs.hs.fs,appr=TRUE,appr.method=1))
+# `round' to higher values
+fs.cdf.u <- dist.pair.cdf(dists.product.pair(fs.vs.hs.fs,appr=TRUE,appr.method=2))
 
-hs.cdf.l <- dists.product.cdf.appr(fs.vs.hs.hs,appr.method=1) # `round' to lower values
-hs.cdf.u <- dists.product.cdf.appr(fs.vs.hs.hs,appr.method=2) # `round' to higher values
+hs.cdf.l <- dist.pair.cdf(dists.product.pair(fs.vs.hs.hs,appr=TRUE,appr.method=1))
+hs.cdf.u <- dist.pair.cdf(dists.product.pair(fs.vs.hs.hs,appr=TRUE,appr.method=2))
 
 t0 <- 1e3
 # prob. for true full sib to have a `large' lr
